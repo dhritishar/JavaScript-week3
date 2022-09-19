@@ -11,9 +11,9 @@ No installation required
 
 ## Usage
 
-There is a screenshot of the intended usage of this password generator
+This is a screenshot of the intended usage of this password generator
 
-![alt text](assets/images/screenshot.png)
+(./02-Challenge/Assets/Screen%20shot%20week3.png)
 
 ## Credits
 
