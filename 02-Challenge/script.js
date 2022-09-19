@@ -27,6 +27,7 @@ function generatePassword () {
 //parseInt will determine if it is a number, following statements show what the response will be for a true number or not
   if (isNaN(passwordLength)) {
     window.alert('Oops! That is not a number, please input a number!')
+    return;
   } else {
     window.alert('Thank you, this is a valid number.')
   }
@@ -48,13 +49,13 @@ var userConfirmUppercase = window.confirm('Would you like to use uppercase lette
 var userConfirmSymbols = window.confirm('Would you like to use symbols in your password?')
 
 //list of numbers to use for the password
-var userNumb = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+var userNumb = ('0123456789')
 
 //list of common symbols to use for the password
-var userSymb = ['!', '@', '#', '$', '%', '&', '*', '_', '-', '{', '}', '(', ')']
+var userSymb = ('~!@#$%&*_-{}()')
 
 //list of lowercase letters to use for the password
-var userLowCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+var userLowCase = ('abcdefghjklmnopqrstuvwxyz')
 
 //list of uppercase letters to use for password, for function to be used to automatically convert lowercase letters list
 var userUpCase = []
