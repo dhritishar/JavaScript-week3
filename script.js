@@ -19,12 +19,13 @@ function generatePassword () {
   }
 //need to determine if password length is withing 8-128 character condition
   if (pswdLength <8 || pswdLength >128) {
-    window.alert ('Reminder! Password length must be between 8 and 128 characters!')
+    window.alert('Reminder! Password length must be between 8 and 128 characters!')
     return
   }
  
 //confirm if user wants to use numbers in the password
-var userConfirmNumbers = window.confirm("Would you like to use numbers in your password?")
+var userConfirmNumbers = window.confirm('Would you like to use numbers in your password?')
+
 
 //confirm if user wants to use lower case or upper case in the password
 var userConfirmLowercase = window.confirm('Would you like to use lowercase letters in your password?')
@@ -33,8 +34,17 @@ var userConfirmUppercase = window.confirm('Would you like to use uppercase lette
 //confirm if user wants to use symbols in the password
 var userConfirmSymbols = window.confirm('Would you like to use symbols in your password?')
 
+//list of numbers to use for the password
+var userNumb = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
+//list of common symbols to use for the password
+var userSymb = ['!', '@', '#', '$', '%', '&', '*']
 
+//list of lowercase letters to use for the password
+var userLowCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+//convert to uppercase letters to use for the password
+userLowCase = userLowCase.toUpperCase();
 
 }
 
