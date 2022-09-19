@@ -38,13 +38,56 @@ var userConfirmSymbols = window.confirm('Would you like to use symbols in your p
 var userNumb = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 //list of common symbols to use for the password
-var userSymb = ['!', '@', '#', '$', '%', '&', '*']
+var userSymb = ['!', '@', '#', '$', '%', '&', '*', '_', '-', '{', '}', '(', ')']
 
 //list of lowercase letters to use for the password
 var userLowCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
+//list of uppercase letters to use for password, for function to be used to automatically convert lowercase letters list
+var userUpCase = []
+
+//all characters list
+var characters = []
+
 //convert to uppercase letters to use for the password
-userLowCase = userLowCase.toUpperCase();
+for (var i = 0; i <userLowCase.length; i++) {
+  userUpCase[i] = userLowCase[i].toUpperCase();
+}
+
+//if user confirms to use numbers
+if (userConfirmNumbers === true) {
+  characters.push(userNumb)
+}
+
+//if user confirms to use symbols
+if (userConfirmSymbols === true) {
+  characters.push(userSymb)
+}
+
+//if user confirms to use lowercase letters
+if (userConfirmLowercase === true) {
+  characters.push(userLowCase)
+}
+
+//if user confirms to use uppercase letters
+if (userConfirmUppercase === true) {
+  characters.push(userUpCase)
+}
+
+//if user chooses nothing
+if (characters.length === 0) {
+  return
+}
+
+var generatePassword = ""
+//random pull of data 
+for (var i = 0; i< passwordLength; i++) {
+  var randomSelect = getRandomInt(characters)
+  var randomSymb = getRandomInt(randomSelect)
+  generatePassword +=randomSymb
+  
+}
+
 
 }
 
@@ -59,3 +102,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+
