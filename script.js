@@ -1,26 +1,39 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+//have a random int range for math function, math.floor drops the decimal in any number
+function someRandomInt(min, max) {
+  if (!max) {
+    max = min;
+    min = 0;
+  }
+  var randomChar = Math.random()
+  return Math.floor(min * (1- randomChar) + randomChar * max);
+}
+
+function getRandomInt (set) {
+  return set[someRandomInt(set.length)];
+}
+
 //define function generatePassword
 function generatePassword () {
 
-//createe value for generatePassword
 //prompt when you click the red generate password button
   var input = window.prompt ('How long do you want your password to be?')
 
-//determnine password length using a number input
-  var pswdLength = parseInt(input)
+//determnine and convert password length using a number input
+  var passwordLength = parseInt(input)
 
 //parseInt will determine if it is a number, following statements show what the response will be for a true number or not
-  if (isNaN(pswdLength)) {
+  if (isNaN(passwordLength)) {
     window.alert('Oops! That is not a number, please input a number!')
   } else {
     window.alert('Thank you, this is a valid number.')
   }
 //need to determine if password length is withing 8-128 character condition
-  if (pswdLength <8 || pswdLength >128) {
+  if (passwordLength <8 || passwordLength >128) {
     window.alert('Reminder! Password length must be between 8 and 128 characters!')
-    return
+    return;
   }
  
 //confirm if user wants to use numbers in the password
@@ -47,7 +60,7 @@ var userLowCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', '
 var userUpCase = []
 
 //all characters list
-var characters = []
+var charactersSet = []
 
 //convert to uppercase letters to use for the password
 for (var i = 0; i <userLowCase.length; i++) {
@@ -56,38 +69,40 @@ for (var i = 0; i <userLowCase.length; i++) {
 
 //if user confirms to use numbers
 if (userConfirmNumbers === true) {
-  characters.push(userNumb)
+  charactersSet.push(userNumb);
 }
 
 //if user confirms to use symbols
 if (userConfirmSymbols === true) {
-  characters.push(userSymb)
+  charactersSet.push(userSymb);
 }
 
 //if user confirms to use lowercase letters
 if (userConfirmLowercase === true) {
-  characters.push(userLowCase)
+  charactersSet.push(userLowCase);
 }
 
 //if user confirms to use uppercase letters
 if (userConfirmUppercase === true) {
-  characters.push(userUpCase)
+  charactersSet.push(userUpCase);
 }
 
 //if user chooses nothing
-if (characters.length === 0) {
+if (charactersSet.length === 0) {
   return
 }
 
-var generatePassword = ""
+var generatedPassword = ""
+
 //random pull of data 
 for (var i = 0; i< passwordLength; i++) {
-  var randomSelect = getRandomInt(characters)
+  var randomSelect = getRandomInt(charactersSet)
   var randomSymb = getRandomInt(randomSelect)
-  generatePassword +=randomSymb
-  
+  generatedPassword += randomSymb
 }
 
+//return the password that was generated
+return generatedPassword;
 
 }
 
