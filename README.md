@@ -14,7 +14,7 @@ No installation required
 
 This is a screenshot of the intended usage of this password generator
 
-![alt text](./Assets/images/Screen%20shot%20week3.png)
+
 
 ## Credits
 
